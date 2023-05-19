@@ -14,11 +14,8 @@ const App = () => {
   ])
   const [filter, setFilter] = useState('');
 
-  useEffect((prevState) =>{
-    if(prevState !== contacts) {
-      const localString = JSON.stringify(contacts)
-      window.localStorage.setItem('contacts', localString)
-    }
+  useEffect(() =>{
+    window.localStorage.setItem('contacts', JSON.stringify(contacts))
   }, [contacts])
 
   const handleSubmit = (formData) => {
